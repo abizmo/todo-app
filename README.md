@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/abizmo/todo-app](https://github.com/abizmo/todo-app)
+- Live Site URL: [https://abizmo.github.io/todo-app/](https://abizmo.github.io/todo-app/)
 
 ## My process
 
