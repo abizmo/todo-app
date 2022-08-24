@@ -1,0 +1,23 @@
+body {
+  background-color: var(--clr-body);
+  color: var(--clr-text);
+  color-scheme: light dark;
+  font-family: var(--ff-body);
+  font-size: var(--fs-400);
+  line-height: 1.5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.attribution {
+  font-size: var(--fs-100);
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--clr-primary-400);
+}
