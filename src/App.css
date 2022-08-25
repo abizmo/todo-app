@@ -1,5 +1,8 @@
 body {
   background-color: var(--clr-body);
+  background-image: url('/bg-mobile-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
@@ -20,4 +23,22 @@ body {
 
 .attribution a {
   color: var(--clr-primary-400);
+}
+
+@media (min-width: 50rem) {
+  body {
+    background-image: url('/bg-desktop-dark.jpg');
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-image: url('/bg-mobile-light.jpg');
+  }
+
+  @media (min-width: 50rem) {
+    body {
+      background-image: url('/bg-desktop-light.jpg');
+    }
+  }
 }
