@@ -19,7 +19,7 @@ const App = () => (
     <main>
       <form action=''>
         <label>
-          <input type='checkbox' />
+          <input disabled type='checkbox' />
           <span className='checkmark'></span>
           <input type='text' placeholder='Create a new todo...' />
         </label>
