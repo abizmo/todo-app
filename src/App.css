@@ -2,7 +2,7 @@ body {
   background-color: var(--clr-body);
   background-image: url('/bg-mobile-dark.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
