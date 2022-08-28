@@ -9,6 +9,15 @@ import './App.css';
 const App = () => {
   const [theme, setTheme] = useState('dark');
 
+  const handleSubmit = (evt: React.SyntheticEvent) => {
+    evt.preventDefault();
+    const target = evt.target as typeof evt.target & {
+      todo: { value: String };
+    };
+    console.log('[Todo Submitted]:', target.todo.value);
+    target.todo.value = '';
+  };
+
   return (
     <div className='container'>
       <header className='flex app-header'>
@@ -22,12 +31,17 @@ const App = () => {
           <span className='visually-hidden'>Change theme</span>
         </button>
       </header>
-      <main>
-        <form action=''>
-          <label>
-            <input disabled type='checkbox' />
+      <main className='todo-app | grid'>
+        <form onSubmit={handleSubmit}>
+          <label className='add-todo | flex'>
+            <input className='add-todo--checkbox' disabled type='checkbox' />
             <span className='checkmark'></span>
-            <input type='text' placeholder='Create a new todo...' />
+            <input
+              id='todo'
+              className='add-todo--text | fs-200'
+              type='text'
+              placeholder='Create a new todo...'
+            />
           </label>
         </form>
         <div>

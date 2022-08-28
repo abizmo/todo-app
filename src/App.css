@@ -2,12 +2,12 @@ body {
   background-color: var(--clr-body);
   background-image: url('/bg-mobile-dark.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
   font-size: var(--fs-400);
-  line-height: 1.5;
+  line-height: 1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,4 +53,40 @@ body {
 .button {
   border: none;
   background: transparent;
+}
+
+.add-todo {
+  align-items: center;
+  background-color: var(--clr-bg-elements);
+  border-radius: 0.25rem;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+  gap: 0.75rem;
+  height: 3rem;
+  padding-inline: 1.5rem;
+  width: 100%;
+}
+
+.add-todo--text {
+  background: transparent;
+  border: none;
+  color: var(--clr-text);
+  outline: none;
+}
+
+.add-todo--text::placeholder {
+  color: var(--clr-text-placeholder);
+}
+
+.add-todo--checkbox {
+  appearance: none;
+  background-color: transparent;
+  width: 1.25rem;
+  height: 1.25em;
+  border: 0.125rem solid var(--clr-border);
+  border-radius: 100%;
+  transform: translateY(-0.075em);
+}
+
+.todo-app {
+  gap: 1rem;
 }
