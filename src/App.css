@@ -2,7 +2,7 @@ body {
   background-color: var(--clr-body);
   background-image: url('/bg-mobile-dark.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
@@ -41,4 +41,16 @@ body {
       background-image: url('/bg-desktop-light.jpg');
     }
   }
+}
+
+.app-header {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  border: none;
+  background: transparent;
 }
