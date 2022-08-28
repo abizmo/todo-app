@@ -21,7 +21,9 @@ const App = () => {
   return (
     <div className='container'>
       <header className='flex app-header'>
-        <h1 className='fs-900 fw-bold lh-heading ls-900 uppercase'>Todo</h1>
+        <h1 className='text-white fs-900 fw-bold lh-heading ls-900 uppercase'>
+          Todo
+        </h1>
         <button className='button'>
           <img
             src={theme === 'dark' ? iconSun : iconMoon}

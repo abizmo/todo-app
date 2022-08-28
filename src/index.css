@@ -98,8 +98,8 @@ ol[role='list'] {
   border: 0;
 }
 
-.text-primary-400 {
-  color: var(--clr-primary-400);
+.text-white {
+  color: var(--clr-gray-100);
 }
 
 .bg-gradient {
