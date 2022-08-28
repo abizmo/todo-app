@@ -24,12 +24,19 @@
 
   --fs-100: 0.6875rem;
   --fs-500: 1rem;
+  --fs-900: 1.75rem;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --clr-text: var(--clr-blue-900);
     --clr-body: var(--clr-gray-100);
+  }
+}
+
+@media (min-width: 50em) {
+  :root {
+    --fs-900: 2.5rem;
   }
 }
 
@@ -70,6 +77,11 @@ ol[role='list'] {
 
 /* Utility classes */
 
+.container {
+  margin-inline: auto;
+  width: min(100% - 3rem, 34rem);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -98,6 +110,10 @@ ol[role='list'] {
   font-size: var(--fs-400);
 }
 
+.fs-900 {
+  font-size: var(--fs-900);
+}
+
 .lh-heading {
   line-height: 1.1;
 }
@@ -108,4 +124,16 @@ ol[role='list'] {
 
 .grid {
   display: grid;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.ls-900 {
+  letter-spacing: 0.37em;
+}
+
+.display-none {
+  display: none;
 }
