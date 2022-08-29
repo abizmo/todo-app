@@ -6,8 +6,36 @@ import iconSun from './assets/images/icon-sun.svg';
 
 import './App.css';
 
+const initialTodos = [
+  {
+    description: 'Complete online JavaScript course',
+    done: true,
+  },
+  {
+    description: 'Jog around the park 3x',
+    done: false,
+  },
+  {
+    description: '10 minutes meditation',
+    done: false,
+  },
+  {
+    description: 'Read for 1 hour',
+    done: false,
+  },
+  {
+    description: 'Pick up groceries',
+    done: false,
+  },
+  {
+    description: 'Complete Todo App on Fronted Mentor',
+    done: false,
+  },
+];
+
 const App = () => {
   const [theme, setTheme] = useState('dark');
+  const [todos, setTodos] = useState(initialTodos);
 
   const handleSubmit = (evt: React.SyntheticEvent) => {
     evt.preventDefault();
@@ -37,7 +65,6 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <label className='add-todo | flex'>
             <input className='add-todo--checkbox' disabled type='checkbox' />
-            <span className='checkmark'></span>
             <input
               id='todo'
               className='add-todo--text | fs-200'
@@ -48,66 +75,25 @@ const App = () => {
         </form>
         <div>
           <ul className='todo-items' role='list'>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Complete online JavaScript course</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Jog aroung the park 3x</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>10 minutes meditation</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Read for 1 hour</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Pick up groceries</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Complete Todo App on Frontend Mentor</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
+            {todos.map(({ description, done }, index) => (
+              <li key={index}>
+                <label className='todo-item | flex'>
+                  <input
+                    className='todo-item--checkbox'
+                    type='checkbox'
+                    checked={done}
+                  />
+                  <span
+                    className={`todo-item--text ${done ? 'done' : ''} | fs-200`}
+                  >
+                    {description}
+                  </span>
+                  <button>
+                    <img src={iconCross} alt='Delete task' />
+                  </button>
+                </label>
+              </li>
+            ))}
           </ul>
           <div className='flex'>
             <span>5 items left</span>
