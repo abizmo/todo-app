@@ -2,8 +2,11 @@
 
 :root {
   --clr-primary-400: hsl(220, 98%, 61%);
-  --clr-primary-gradient: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --clr-primary-gradient: linear-gradient(
+    to right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 
   --clr-blue-900: hsl(235, 21%, 11%);
   --clr-blue-800: hsl(235, 24%, 19%);
@@ -22,6 +25,7 @@
   --clr-body: var(--clr-blue-900);
   --clr-bg-elements: var(--clr-blue-800);
   --clr-border: var(--clr-grayish-blue-900);
+  --clr-bg-list: var(--clr-grayish-blue-700);
 
   --ff-body: 'Josefin Sans', sans-serif;
 
