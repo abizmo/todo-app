@@ -140,9 +140,9 @@ const App = () => {
             <span>Clear Completed</span>
           </div>
         </div>
-        <p>Drag and drop to reorder list</p>
+        <p className='text-center'>Drag and drop to reorder list</p>
       </main>
-      <footer className='attribution'>
+      <footer className='attribution | text-center'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io?ref=challenge'
