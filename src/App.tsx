@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import iconCross from './assets/images/icon-cross.svg';
 import iconMoon from './assets/images/icon-moon.svg';
@@ -6,28 +6,40 @@ import iconSun from './assets/images/icon-sun.svg';
 
 import './App.css';
 
+type TodosType = {
+  id: number;
+  description: string;
+  done: boolean;
+};
+
 const initialTodos = [
   {
+    id: 1,
     description: 'Complete online JavaScript course',
     done: true,
   },
   {
+    id: 2,
     description: 'Jog around the park 3x',
     done: false,
   },
   {
+    id: 3,
     description: '10 minutes meditation',
     done: false,
   },
   {
+    id: 4,
     description: 'Read for 1 hour',
     done: false,
   },
   {
+    id: 5,
     description: 'Pick up groceries',
     done: false,
   },
   {
+    id: 6,
     description: 'Complete Todo App on Fronted Mentor',
     done: false,
   },
@@ -35,15 +47,33 @@ const initialTodos = [
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
-  const [todos, setTodos] = useState(initialTodos);
+  const [newTodo, setNewTodo] = useState('');
+  const [todos, setTodos] = useState<TodosType[]>([]);
+
+  useEffect(() => {
+    setTodos(initialTodos);
+  }, []);
 
   const handleSubmit = (evt: React.SyntheticEvent) => {
     evt.preventDefault();
-    const target = evt.target as typeof evt.target & {
-      todo: { value: String };
-    };
-    console.log('[Todo Submitted]:', target.todo.value);
-    target.todo.value = '';
+    if (newTodo.trim() === '') return;
+
+    setTodos((prevTodos) => {
+      const newTodos = [
+        ...prevTodos,
+        {
+          id: new Date().getTime(),
+          description: newTodo,
+          done: false,
+        },
+      ];
+      setNewTodo('');
+      return newTodos;
+    });
+  };
+
+  const handleDelete = (todoId: number) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
   };
 
   return (
@@ -70,13 +100,15 @@ const App = () => {
               className='add-todo--text | fs-200'
               type='text'
               placeholder='Create a new todo...'
+              value={newTodo}
+              onChange={({ target }) => setNewTodo(target.value)}
             />
           </label>
         </form>
-        <div>
-          <ul className='todo-items' role='list'>
-            {todos.map(({ description, done }, index) => (
-              <li key={index}>
+        <div className='todo-items'>
+          <ul role='list'>
+            {todos.map(({ description, done, id }) => (
+              <li key={id}>
                 <label className='todo-item | flex'>
                   <input
                     className='todo-item--checkbox'
@@ -88,7 +120,7 @@ const App = () => {
                   >
                     {description}
                   </span>
-                  <button>
+                  <button className='button' onClick={() => handleDelete(id)}>
                     <img src={iconCross} alt='Delete task' />
                   </button>
                 </label>
