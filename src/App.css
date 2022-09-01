@@ -59,10 +59,16 @@ body {
 .todo__list {
   border-radius: 0.25rem;
   background-color: var(--clr-bg-list);
-  overflow: hidden;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+  margin-bottom: calc(3.125rem + 2rem);
 }
 
-.todo__list-items {
+.todo__list-items,
+.todo__list-items li:first-of-type {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.todo__list-items li {
+  overflow: hidden;
 }
 
 .add-todo,
@@ -137,6 +143,8 @@ body {
   height: 3.125rem;
   justify-content: space-between;
   padding-inline: 1.5rem;
+  border-radius: 0 0 4px 4px;
+  position: relative;
 }
 
 .filter__bar-clear {
@@ -144,5 +152,20 @@ body {
 }
 
 .filters {
-  display: none;
+  background-color: var(--clr-bg-elements);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  top: calc(100% + 1rem);
+  height: 3.125rem;
+  left: 0;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+}
+
+.tab-active {
+  color: var(--clr-primary-400);
+  font-weight: 700;
 }
