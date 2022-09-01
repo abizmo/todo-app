@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import iconCross from './assets/images/icon-cross.svg';
 import iconMoon from './assets/images/icon-moon.svg';
@@ -6,13 +6,90 @@ import iconSun from './assets/images/icon-sun.svg';
 
 import './App.css';
 
+type TodosType = {
+  id: number;
+  description: string;
+  done: boolean;
+};
+
+const initialTodos = [
+  {
+    id: 1,
+    description: 'Complete online JavaScript course',
+    done: true,
+  },
+  {
+    id: 2,
+    description: 'Jog around the park 3x',
+    done: false,
+  },
+  {
+    id: 3,
+    description: '10 minutes meditation',
+    done: false,
+  },
+  {
+    id: 4,
+    description: 'Read for 1 hour',
+    done: false,
+  },
+  {
+    id: 5,
+    description: 'Pick up groceries',
+    done: false,
+  },
+  {
+    id: 6,
+    description: 'Complete Todo App on Fronted Mentor',
+    done: false,
+  },
+];
+
 const App = () => {
   const [theme, setTheme] = useState('dark');
+  const [newTodo, setNewTodo] = useState('');
+  const [todos, setTodos] = useState<TodosType[]>([]);
+
+  useEffect(() => {
+    setTodos(initialTodos);
+  }, []);
+
+  const handleSubmit = (evt: React.SyntheticEvent) => {
+    evt.preventDefault();
+    if (newTodo.trim() === '') return;
+
+    setTodos((prevTodos) => {
+      const newTodos = [
+        ...prevTodos,
+        {
+          id: new Date().getTime(),
+          description: newTodo,
+          done: false,
+        },
+      ];
+      setNewTodo('');
+      return newTodos;
+    });
+  };
+
+  const handleDelete = (todoId: number) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
+  };
+
+  const handleChange = (todoId: number) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === todoId ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  };
 
   return (
     <div className='container'>
       <header className='flex app-header'>
-        <h1 className='fs-900 fw-bold lh-heading ls-900 uppercase'>Todo</h1>
+        <h1 className='text-white fs-900 fw-bold lh-heading ls-900 uppercase'>
+          Todo
+        </h1>
         <button className='button'>
           <img
             src={theme === 'dark' ? iconSun : iconMoon}
@@ -22,76 +99,42 @@ const App = () => {
           <span className='visually-hidden'>Change theme</span>
         </button>
       </header>
-      <main>
-        <form action=''>
-          <label>
-            <input disabled type='checkbox' />
-            <span className='checkmark'></span>
-            <input type='text' placeholder='Create a new todo...' />
+      <main className='todo-app | grid'>
+        <form onSubmit={handleSubmit}>
+          <label className='add-todo | flex'>
+            <input className='add-todo--checkbox' disabled type='checkbox' />
+            <input
+              id='todo'
+              className='add-todo--text | fs-200'
+              type='text'
+              placeholder='Create a new todo...'
+              value={newTodo}
+              onChange={({ target }) => setNewTodo(target.value)}
+            />
           </label>
         </form>
-        <div>
-          <ul className='todo-items' role='list'>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Complete online JavaScript course</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Jog aroung the park 3x</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>10 minutes meditation</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Read for 1 hour</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Pick up groceries</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type='checkbox' />
-                <span className='checkmark'></span>
-                <span>Complete Todo App on Frontend Mentor</span>
-                <button>
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
-            </li>
+        <div className='todo-items'>
+          <ul role='list'>
+            {todos.map(({ description, done, id }) => (
+              <li key={id}>
+                <label className='todo-item | flex'>
+                  <input
+                    className='todo-item--checkbox'
+                    type='checkbox'
+                    checked={done}
+                    onChange={() => handleChange(id)}
+                  />
+                  <span
+                    className={`todo-item--text ${done ? 'done' : ''} | fs-200`}
+                  >
+                    {description}
+                  </span>
+                  <button className='button' onClick={() => handleDelete(id)}>
+                    <img src={iconCross} alt='Delete task' />
+                  </button>
+                </label>
+              </li>
+            ))}
           </ul>
           <div className='flex'>
             <span>5 items left</span>
@@ -124,9 +167,9 @@ const App = () => {
             <span>Clear Completed</span>
           </div>
         </div>
-        <p>Drag and drop to reorder list</p>
+        <p className='text-center'>Drag and drop to reorder list</p>
       </main>
-      <footer className='attribution'>
+      <footer className='attribution | text-center'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io?ref=challenge'

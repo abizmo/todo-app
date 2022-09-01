@@ -2,8 +2,11 @@
 
 :root {
   --clr-primary-400: hsl(220, 98%, 61%);
-  --clr-primary-gradient: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --clr-primary-gradient: linear-gradient(
+    to right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 
   --clr-blue-900: hsl(235, 21%, 11%);
   --clr-blue-800: hsl(235, 24%, 19%);
@@ -17,12 +20,17 @@
   --clr-grayish-blue-200: hsl(236, 33%, 92%);
   --clr-gray-100: hsl(0, 0%, 98%);
 
-  --clr-text: var(--clr-gray-100);
+  --clr-text: var(--clr-grayish-blue-300);
+  --clr-text-placeholder: var(--clr-grayish-blue-500);
   --clr-body: var(--clr-blue-900);
+  --clr-bg-elements: var(--clr-blue-800);
+  --clr-border: var(--clr-grayish-blue-900);
+  --clr-bg-list: var(--clr-grayish-blue-700);
 
   --ff-body: 'Josefin Sans', sans-serif;
 
   --fs-100: 0.6875rem;
+  --fs-200: 0.75rem;
   --fs-500: 1rem;
   --fs-900: 1.75rem;
 }
@@ -94,8 +102,8 @@ ol[role='list'] {
   border: 0;
 }
 
-.text-primary-400 {
-  color: var(--clr-primary-400);
+.text-white {
+  color: var(--clr-gray-100);
 }
 
 .bg-gradient {
@@ -104,6 +112,10 @@ ol[role='list'] {
 
 .fw-bold {
   font-weight: 700;
+}
+
+.fs-200 {
+  font-size: var(--fs-200);
 }
 
 .fs-400 {
@@ -136,4 +148,8 @@ ol[role='list'] {
 
 .display-none {
   display: none;
+}
+
+.text-center {
+  text-align: center;
 }

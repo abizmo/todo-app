@@ -2,12 +2,12 @@ body {
   background-color: var(--clr-body);
   background-image: url('/bg-mobile-dark.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 200px;
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
   font-size: var(--fs-400);
-  line-height: 1.5;
+  line-height: 1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,6 @@ body {
 
 .attribution {
   font-size: var(--fs-100);
-  text-align: center;
 }
 
 .attribution a {
@@ -28,6 +27,7 @@ body {
 @media (min-width: 50rem) {
   body {
     background-image: url('/bg-desktop-dark.jpg');
+    background-size: 100% 300px;
   }
 }
 
@@ -35,11 +35,11 @@ body {
   body {
     background-image: url('/bg-mobile-light.jpg');
   }
+}
 
-  @media (min-width: 50rem) {
-    body {
-      background-image: url('/bg-desktop-light.jpg');
-    }
+@media (min-width: 50rem) and (prefers-color-scheme: light) {
+  body {
+    background-image: url('/bg-desktop-light.jpg');
   }
 }
 
@@ -53,4 +53,76 @@ body {
 .button {
   border: none;
   background: transparent;
+}
+
+.todo-items {
+  border-radius: 0.25rem;
+  background-color: var(--clr-bg-list);
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.add-todo,
+.todo-item {
+  align-items: center;
+  background-color: var(--clr-bg-elements);
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+  gap: 0.75rem;
+  padding-inline: 1.5rem;
+  width: 100%;
+}
+
+.add-todo {
+  border-radius: 0.25rem;
+  height: 3rem;
+}
+
+.todo-item {
+  height: 3.25rem;
+}
+
+.add-todo--text,
+.todo-item--text {
+  background: transparent;
+  border: none;
+  color: var(--clr-text);
+  outline: none;
+  flex: 1;
+}
+
+.todo-item--text.done {
+  text-decoration: line-through;
+  color: var(--clr-bg-list);
+}
+
+.add-todo--text::placeholder {
+  color: var(--clr-text-placeholder);
+}
+
+.add-todo--checkbox,
+.todo-item--checkbox {
+  appearance: none;
+  background-color: transparent;
+  width: 1.25rem;
+  height: 1.25em;
+  border: 0.125rem solid var(--clr-border);
+  border-radius: 100%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+.todo-item--checkbox:checked::before {
+  background: var(--clr-primary-gradient);
+  content: url('assets/images/icon-check.svg');
+  width: 1.25rem;
+  height: 1.25em;
+  border-radius: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.todo-app {
+  gap: 1rem;
 }
