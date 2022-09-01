@@ -84,6 +84,10 @@ const App = () => {
     );
   };
 
+  const handleClear = () => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.done));
+  };
+
   return (
     <div className='container'>
       <header className='flex app-header'>
@@ -136,9 +140,11 @@ const App = () => {
               </li>
             ))}
           </ul>
-          <div className='flex'>
-            <span>5 items left</span>
-            <div className='filter-list' role='tablist' aria-label='filter'>
+          <div className='filter__bar | flex'>
+            <span className='filter__bar-counter'>
+              {todos.filter((todo) => !todo.done).length} items left
+            </span>
+            <div className='filters' role='tablist' aria-label='filter'>
               <button
                 aria-selected='true'
                 role='tab'
@@ -164,7 +170,9 @@ const App = () => {
                 Completed
               </button>
             </div>
-            <span>Clear Completed</span>
+            <button className='filter__bar-clear button' onClick={handleClear}>
+              Clear Completed
+            </button>
           </div>
         </div>
         <p className='text-center'>Drag and drop to reorder list</p>
