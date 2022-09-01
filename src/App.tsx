@@ -117,19 +117,21 @@ const App = () => {
             />
           </label>
         </form>
-        <div className='todo-items'>
-          <ul role='list'>
+        <div className='todo__list'>
+          <ul className='todo__list-items' role='list'>
             {todos.map(({ description, done, id }) => (
               <li key={id}>
-                <label className='todo-item | flex'>
+                <label className='todo__list-item | flex'>
                   <input
-                    className='todo-item--checkbox'
+                    className='todo__list-checkbox'
                     type='checkbox'
                     checked={done}
                     onChange={() => handleChange(id)}
                   />
                   <span
-                    className={`todo-item--text ${done ? 'done' : ''} | fs-200`}
+                    className={`todo__list-description ${
+                      done ? 'done' : ''
+                    } | fs-200`}
                   >
                     {description}
                   </span>

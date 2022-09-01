@@ -56,21 +56,23 @@ body {
   color: var(--clr-text);
 }
 
-.todo-items {
+.todo__list {
   border-radius: 0.25rem;
   background-color: var(--clr-bg-list);
-  display: grid;
-  gap: 1px;
   overflow: hidden;
 }
 
+.todo__list-items {
+}
+
 .add-todo,
-.todo-item {
+.todo__list-item {
   align-items: center;
   background-color: var(--clr-bg-elements);
   gap: 0.75rem;
   padding-inline: 1.5rem;
   width: 100%;
+  margin-bottom: 1px;
 }
 
 .add-todo {
@@ -79,12 +81,12 @@ body {
   height: 3rem;
 }
 
-.todo-item {
+.todo__list-item {
   height: 3.25rem;
 }
 
 .add-todo--text,
-.todo-item--text {
+.todo__list-description {
   background: transparent;
   border: none;
   color: var(--clr-text);
@@ -92,7 +94,7 @@ body {
   flex: 1;
 }
 
-.todo-item--text.done {
+.todo__list-description.done {
   text-decoration: line-through;
   color: var(--clr-bg-list);
 }
@@ -102,7 +104,7 @@ body {
 }
 
 .add-todo--checkbox,
-.todo-item--checkbox {
+.todo__list-checkbox {
   appearance: none;
   background-color: transparent;
   width: 1.25rem;
@@ -114,7 +116,7 @@ body {
   place-content: center;
 }
 
-.todo-item--checkbox:checked::before {
+.todo__list-checkbox:checked::before {
   background: var(--clr-primary-gradient);
   content: url('assets/images/icon-check.svg');
   width: 1.25rem;
