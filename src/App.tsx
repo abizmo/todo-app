@@ -76,6 +76,14 @@ const App = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
   };
 
+  const handleChange = (todoId: number) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === todoId ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  };
+
   return (
     <div className='container'>
       <header className='flex app-header'>
@@ -114,6 +122,7 @@ const App = () => {
                     className='todo-item--checkbox'
                     type='checkbox'
                     checked={done}
+                    onChange={() => handleChange(id)}
                   />
                   <span
                     className={`todo-item--text ${done ? 'done' : ''} | fs-200`}
