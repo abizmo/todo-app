@@ -152,7 +152,10 @@ const App = () => {
                     >
                       {description}
                     </span>
-                    <button className='button' onClick={() => handleDelete(id)}>
+                    <button
+                      className='button todo__close'
+                      onClick={() => handleDelete(id)}
+                    >
                       <img src={iconCross} alt='Delete task' />
                     </button>
                   </label>

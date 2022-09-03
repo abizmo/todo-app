@@ -181,3 +181,13 @@ footer a {
   color: var(--clr-primary-400);
   font-weight: 700;
 }
+
+@media (min-width: 48em) {
+  .todo__close {
+    display: none;
+  }
+
+  .todo__list-item:hover .todo__close {
+    display: initial;
+  }
+}
