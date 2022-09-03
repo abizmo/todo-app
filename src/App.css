@@ -111,7 +111,7 @@ footer a {
 }
 
 .add-todo--text::placeholder {
-  color: var(--clr-text-placeholder);
+  color: var(--clr-label);
 }
 
 .add-todo--checkbox,
@@ -144,6 +144,7 @@ footer a {
 .filter__bar {
   align-items: center;
   background-color: var(--clr-bg-elements);
+  color: var(--clr-label);
   font-size: var(--fs-200);
   height: 3.125rem;
   justify-content: space-between;
@@ -153,6 +154,7 @@ footer a {
 }
 
 .filter__bar-clear {
+  color: var(--clr-label);
   text-align: right;
 }
 
@@ -170,7 +172,7 @@ footer a {
   box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
 }
 
-.tab-active {
+.filters__tab-active {
   color: var(--clr-primary-400);
   font-weight: 700;
 }

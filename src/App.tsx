@@ -168,8 +168,8 @@ const App = () => {
             <div className='filters' role='tablist' aria-label='filter'>
               <button
                 className={`button ${
-                  filter === FilterType.ALL ? 'tab-active' : ''
-                }`}
+                  filter === FilterType.ALL ? 'filters__tab-active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
@@ -180,8 +180,8 @@ const App = () => {
               </button>
               <button
                 className={`button ${
-                  filter === FilterType.ACTIVE ? 'tab-active' : ''
-                }`}
+                  filter === FilterType.ACTIVE ? 'filters__tab-active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
@@ -192,8 +192,8 @@ const App = () => {
               </button>
               <button
                 className={`button ${
-                  filter === FilterType.COMPLETED ? 'tab-active' : ''
-                }`}
+                  filter === FilterType.COMPLETED ? 'filters__tab-active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
@@ -208,7 +208,9 @@ const App = () => {
             </button>
           </div>
         </div>
-        <p className='text-center'>Drag and drop to reorder list</p>
+        <p className='text-center fs-300 text-gray'>
+          Drag and drop to reorder list
+        </p>
       </main>
       <footer className='text-center'>
         Challenge by{' '}

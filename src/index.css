@@ -21,7 +21,7 @@
   --clr-gray-100: hsl(0, 0%, 98%);
 
   --clr-text: var(--clr-grayish-blue-300);
-  --clr-text-placeholder: var(--clr-grayish-blue-500);
+  --clr-label: var(--clr-grayish-blue-500);
   --clr-body: var(--clr-blue-900);
   --clr-bg-elements: var(--clr-blue-800);
   --clr-border: var(--clr-grayish-blue-900);
@@ -31,6 +31,7 @@
 
   --fs-100: 0.6875rem;
   --fs-200: 0.75rem;
+  --fs-300: 0.875rem;
   --fs-500: 1rem;
   --fs-900: 1.75rem;
 }
@@ -102,6 +103,10 @@ ol[role='list'] {
   border: 0;
 }
 
+.text-gray {
+  color: var(--clr-label);
+}
+
 .text-white {
   color: var(--clr-gray-100);
 }
@@ -116,6 +121,10 @@ ol[role='list'] {
 
 .fs-200 {
   font-size: var(--fs-200);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
 }
 
 .fs-400 {
