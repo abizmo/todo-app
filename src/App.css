@@ -25,7 +25,7 @@ footer a {
   color: var(--clr-primary-400);
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 48em) {
   body {
     background-image: url('/bg-desktop-dark.jpg');
     background-size: 100% 300px;
@@ -38,7 +38,7 @@ footer a {
   }
 }
 
-@media (min-width: 50rem) and (prefers-color-scheme: light) {
+@media (min-width: 48em) and (prefers-color-scheme: light) {
   body {
     background-image: url('/bg-desktop-light.jpg');
   }
