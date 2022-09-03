@@ -167,8 +167,8 @@ const App = () => {
             </span>
             <div className='filters' role='tablist' aria-label='filter'>
               <button
-                className={`button ${
-                  filter === FilterType.ALL ? 'filters__tab-active' : ''
+                className={`button filters__tab ${
+                  filter === FilterType.ALL ? 'active' : ''
                 } | text-gray`}
                 aria-selected='true'
                 role='tab'
@@ -179,8 +179,8 @@ const App = () => {
                 All
               </button>
               <button
-                className={`button ${
-                  filter === FilterType.ACTIVE ? 'filters__tab-active' : ''
+                className={`button filters__tab ${
+                  filter === FilterType.ACTIVE ? 'active' : ''
                 } | text-gray`}
                 aria-selected='true'
                 role='tab'
@@ -191,8 +191,8 @@ const App = () => {
                 Active
               </button>
               <button
-                className={`button ${
-                  filter === FilterType.COMPLETED ? 'filters__tab-active' : ''
+                className={`button filters__tab ${
+                  filter === FilterType.COMPLETED ? 'active' : ''
                 } | text-gray`}
                 aria-selected='true'
                 role='tab'

@@ -172,7 +172,7 @@ footer a {
   box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
 }
 
-.filters__tab-active {
+.filters__tab.active {
   color: var(--clr-primary-400);
   font-weight: 700;
 }
