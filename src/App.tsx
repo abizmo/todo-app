@@ -12,6 +12,18 @@ type TodosType = {
   done: boolean;
 };
 
+enum FilterType {
+  ALL = 'ALL',
+  ACTIVE = 'ACTIVE',
+  COMPLETED = 'COMPLETED',
+}
+
+const FILTER_MAP = {
+  ALL: () => true,
+  ACTIVE: (todo: TodosType) => !todo.done,
+  COMPLETED: (todo: TodosType) => todo.done,
+};
+
 const initialTodos = [
   {
     id: 1,
@@ -49,6 +61,7 @@ const App = () => {
   const [theme, setTheme] = useState('dark');
   const [newTodo, setNewTodo] = useState('');
   const [todos, setTodos] = useState<TodosType[]>([]);
+  const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
 
   useEffect(() => {
     setTodos(initialTodos);
@@ -84,8 +97,16 @@ const App = () => {
     );
   };
 
+  const handleClear = () => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.done));
+  };
+
+  const handleFilter = (typeFilter: FilterType) => {
+    setFilter(typeFilter);
+  };
+
   return (
-    <div className='container'>
+    <div className='app-container | container grid'>
       <header className='flex app-header'>
         <h1 className='text-white fs-900 fw-bold lh-heading ls-900 uppercase'>
           Todo
@@ -113,63 +134,85 @@ const App = () => {
             />
           </label>
         </form>
-        <div className='todo-items'>
-          <ul role='list'>
-            {todos.map(({ description, done, id }) => (
-              <li key={id}>
-                <label className='todo-item | flex'>
-                  <input
-                    className='todo-item--checkbox'
-                    type='checkbox'
-                    checked={done}
-                    onChange={() => handleChange(id)}
-                  />
-                  <span
-                    className={`todo-item--text ${done ? 'done' : ''} | fs-200`}
-                  >
-                    {description}
-                  </span>
-                  <button className='button' onClick={() => handleDelete(id)}>
-                    <img src={iconCross} alt='Delete task' />
-                  </button>
-                </label>
-              </li>
-            ))}
+        <div className='todo__list'>
+          <ul className='todo__list-items' role='list'>
+            {todos
+              .filter(FILTER_MAP[filter])
+              .map(({ description, done, id }) => (
+                <li key={id}>
+                  <label className='todo__list-item | flex'>
+                    <input
+                      className='todo__list-checkbox'
+                      type='checkbox'
+                      checked={done}
+                      onChange={() => handleChange(id)}
+                    />
+                    <span
+                      className={`todo__list-description ${
+                        done ? 'done' : ''
+                      } | fs-200`}
+                    >
+                      {description}
+                    </span>
+                    <button className='button' onClick={() => handleDelete(id)}>
+                      <img src={iconCross} alt='Delete task' />
+                    </button>
+                  </label>
+                </li>
+              ))}
           </ul>
-          <div className='flex'>
-            <span>5 items left</span>
-            <div className='filter-list' role='tablist' aria-label='filter'>
+          <div className='filter__bar | flex'>
+            <span className='filter__bar-counter'>
+              {todos.filter((todo) => !todo.done).length} items left
+            </span>
+            <div className='filters' role='tablist' aria-label='filter'>
               <button
+                className={`button filters__tab ${
+                  filter === FilterType.ALL ? 'active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
                 tabIndex={0}
+                onClick={() => handleFilter(FilterType.ALL)}
               >
                 All
               </button>
               <button
+                className={`button filters__tab ${
+                  filter === FilterType.ACTIVE ? 'active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
                 tabIndex={-1}
+                onClick={() => handleFilter(FilterType.ACTIVE)}
               >
                 Active
               </button>
               <button
+                className={`button filters__tab ${
+                  filter === FilterType.COMPLETED ? 'active' : ''
+                } | text-gray`}
                 aria-selected='true'
                 role='tab'
                 aria-controls='todo-items'
                 tabIndex={-1}
+                onClick={() => handleFilter(FilterType.COMPLETED)}
               >
                 Completed
               </button>
             </div>
-            <span>Clear Completed</span>
+            <button className='filter__bar-clear button' onClick={handleClear}>
+              Clear Completed
+            </button>
           </div>
         </div>
-        <p className='text-center'>Drag and drop to reorder list</p>
+        <p className='text-center fs-300 text-gray'>
+          Drag and drop to reorder list
+        </p>
       </main>
-      <footer className='attribution | text-center'>
+      <footer className='text-center'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io?ref=challenge'

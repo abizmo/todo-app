@@ -16,11 +16,12 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-.attribution {
+footer {
   font-size: var(--fs-100);
+  padding-block: 2rem;
 }
 
-.attribution a {
+footer a {
   color: var(--clr-primary-400);
 }
 
@@ -43,6 +44,11 @@ body {
   }
 }
 
+.app-container {
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+  align-items: start;
+}
 .app-header {
   align-items: center;
   justify-content: space-between;
@@ -53,21 +59,27 @@ body {
 .button {
   border: none;
   background: transparent;
+  color: var(--clr-text);
 }
 
-.todo-items {
+.todo__list {
   border-radius: 0.25rem;
-  background-color: var(--clr-bg-list);
-  display: grid;
-  gap: 1px;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+  margin-bottom: calc(3.125rem + 2rem);
+}
+
+.todo__list-items,
+.todo__list-items li:first-of-type {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.todo__list-items li {
   overflow: hidden;
 }
 
 .add-todo,
-.todo-item {
+.todo__list-item {
   align-items: center;
   background-color: var(--clr-bg-elements);
-  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
   gap: 0.75rem;
   padding-inline: 1.5rem;
   width: 100%;
@@ -75,15 +87,17 @@ body {
 
 .add-todo {
   border-radius: 0.25rem;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
   height: 3rem;
 }
 
-.todo-item {
+.todo__list-item {
   height: 3.25rem;
+  border-bottom: 1px solid var(--clr-bg-list);
 }
 
 .add-todo--text,
-.todo-item--text {
+.todo__list-description {
   background: transparent;
   border: none;
   color: var(--clr-text);
@@ -91,17 +105,17 @@ body {
   flex: 1;
 }
 
-.todo-item--text.done {
+.todo__list-description.done {
   text-decoration: line-through;
   color: var(--clr-bg-list);
 }
 
 .add-todo--text::placeholder {
-  color: var(--clr-text-placeholder);
+  color: var(--clr-label);
 }
 
 .add-todo--checkbox,
-.todo-item--checkbox {
+.todo__list-checkbox {
   appearance: none;
   background-color: transparent;
   width: 1.25rem;
@@ -113,7 +127,7 @@ body {
   place-content: center;
 }
 
-.todo-item--checkbox:checked::before {
+.todo__list-checkbox:checked::before {
   background: var(--clr-primary-gradient);
   content: url('assets/images/icon-check.svg');
   width: 1.25rem;
@@ -125,4 +139,40 @@ body {
 
 .todo-app {
   gap: 1rem;
+}
+
+.filter__bar {
+  align-items: center;
+  background-color: var(--clr-bg-elements);
+  color: var(--clr-label);
+  font-size: var(--fs-200);
+  height: 3.125rem;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+  border-radius: 0 0 4px 4px;
+  position: relative;
+}
+
+.filter__bar-clear {
+  color: var(--clr-label);
+  text-align: right;
+}
+
+.filters {
+  background-color: var(--clr-bg-elements);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  top: calc(100% + 1rem);
+  height: 3.125rem;
+  left: 0;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+}
+
+.filters__tab.active {
+  color: var(--clr-primary-400);
+  font-weight: 700;
 }
