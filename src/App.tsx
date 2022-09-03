@@ -126,7 +126,7 @@ const App = () => {
             <input className='add-todo--checkbox' disabled type='checkbox' />
             <input
               id='todo'
-              className='add-todo--text | fs-200'
+              className='add-todo--text'
               type='text'
               placeholder='Create a new todo...'
               value={newTodo}
@@ -148,9 +148,7 @@ const App = () => {
                       onChange={() => handleChange(id)}
                     />
                     <span
-                      className={`todo__list-description ${
-                        done ? 'done' : ''
-                      } | fs-200`}
+                      className={`todo__list-description ${done ? 'done' : ''}`}
                     >
                       {description}
                     </span>
@@ -165,7 +163,7 @@ const App = () => {
             <span className='filter__bar-counter'>
               {todos.filter((todo) => !todo.done).length} items left
             </span>
-            <div className='filters' role='tablist' aria-label='filter'>
+            <div className='filters fs-300' role='tablist' aria-label='filter'>
               <button
                 className={`button filters__tab ${
                   filter === FilterType.ALL ? 'active' : ''

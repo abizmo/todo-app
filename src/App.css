@@ -6,7 +6,7 @@ body {
   color: var(--clr-text);
   color-scheme: light dark;
   font-family: var(--ff-body);
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   line-height: 1;
 
   font-synthesis: none;
@@ -151,6 +151,11 @@ footer a {
   padding-inline: 1.5rem;
   border-radius: 0 0 4px 4px;
   position: relative;
+}
+@media (min-width: 48em) {
+  .filter__bar {
+    font-size: var(--fs-300);
+  }
 }
 
 .filter__bar-clear {
