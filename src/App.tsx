@@ -106,7 +106,7 @@ const App = () => {
   };
 
   return (
-    <div className='container'>
+    <div className='app-container | container grid'>
       <header className='flex app-header'>
         <h1 className='text-white fs-900 fw-bold lh-heading ls-900 uppercase'>
           Todo
@@ -210,7 +210,7 @@ const App = () => {
         </div>
         <p className='text-center'>Drag and drop to reorder list</p>
       </main>
-      <footer className='attribution | text-center'>
+      <footer className='text-center'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io?ref=challenge'

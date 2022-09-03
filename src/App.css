@@ -16,11 +16,12 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-.attribution {
+footer {
   font-size: var(--fs-100);
+  padding-block: 2rem;
 }
 
-.attribution a {
+footer a {
   color: var(--clr-primary-400);
 }
 
@@ -43,6 +44,11 @@ body {
   }
 }
 
+.app-container {
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+  align-items: start;
+}
 .app-header {
   align-items: center;
   justify-content: space-between;
@@ -58,7 +64,6 @@ body {
 
 .todo__list {
   border-radius: 0.25rem;
-  background-color: var(--clr-bg-list);
   box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
   margin-bottom: calc(3.125rem + 2rem);
 }
@@ -78,7 +83,6 @@ body {
   gap: 0.75rem;
   padding-inline: 1.5rem;
   width: 100%;
-  margin-bottom: 1px;
 }
 
 .add-todo {
@@ -89,6 +93,7 @@ body {
 
 .todo__list-item {
   height: 3.25rem;
+  border-bottom: 1px solid var(--clr-bg-list);
 }
 
 .add-todo--text,
