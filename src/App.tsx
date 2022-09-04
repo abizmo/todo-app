@@ -58,7 +58,7 @@ const initialTodos = [
 ];
 
 const App = () => {
-  const [theme, setTheme] = useState('dark');
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
   const [newTodo, setNewTodo] = useState('');
   const [todos, setTodos] = useState<TodosType[]>([]);
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
@@ -105,6 +105,8 @@ const App = () => {
     setFilter(typeFilter);
   };
 
+  const handleToggleTheme = () => setIsDarkTheme((prevTheme) => !prevTheme);
+
   return (
     <div className='app-container | container grid'>
       <header className='flex app-header'>
@@ -113,9 +115,10 @@ const App = () => {
         </h1>
         <button className='button'>
           <img
-            src={theme === 'dark' ? iconSun : iconMoon}
+            src={isDarkTheme ? iconSun : iconMoon}
             alt=''
             aria-hidden='true'
+            onClick={handleToggleTheme}
           />
           <span className='visually-hidden'>Change theme</span>
         </button>
