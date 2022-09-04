@@ -25,7 +25,7 @@
   --clr-body: var(--clr-blue-900);
   --clr-bg-elements: var(--clr-blue-800);
   --clr-border: var(--clr-grayish-blue-900);
-  --clr-bg-list: var(--clr-grayish-blue-700);
+  --clr-text-done: var(--clr-grayish-blue-700);
   --clr-box-shadow: var(--clr-blue-900);
 
   --ff-body: 'Josefin Sans', sans-serif;
@@ -45,6 +45,24 @@
     --clr-border: var(--clr-grayish-blue-400);
     --clr-box-shadow: var(--clr-grayish-blue-400);
   }
+}
+
+[data-light] {
+  --clr-text: var(--clr-grayish-blue-700);
+  --clr-body: var(--clr-grayish-blue-200);
+  --clr-bg-elements: var(--clr-gray-100);
+  --clr-border: var(--clr-grayish-blue-400);
+  --clr-box-shadow: var(--clr-grayish-blue-400);
+  --clr-text-done: var(--clr-grayish-blue-400);
+}
+
+[data-dark] {
+  --clr-text: var(--clr-grayish-blue-300);
+  --clr-body: var(--clr-blue-900);
+  --clr-bg-elements: var(--clr-blue-800);
+  --clr-border: var(--clr-grayish-blue-900);
+  --clr-box-shadow: var(--clr-blue-900);
+  --clr-text-done: var(--clr-grayish-blue-700);
 }
 
 *,
