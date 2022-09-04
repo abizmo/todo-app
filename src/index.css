@@ -26,6 +26,7 @@
   --clr-bg-elements: var(--clr-blue-800);
   --clr-border: var(--clr-grayish-blue-900);
   --clr-bg-list: var(--clr-grayish-blue-700);
+  --clr-box-shadow: var(--clr-blue-900);
 
   --ff-body: 'Josefin Sans', sans-serif;
 
@@ -38,8 +39,11 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --clr-text: var(--clr-blue-900);
-    --clr-body: var(--clr-gray-100);
+    --clr-text: var(--clr-grayish-blue-700);
+    --clr-body: var(--clr-grayish-blue-200);
+    --clr-bg-elements: var(--clr-gray-100);
+    --clr-border: var(--clr-grayish-blue-400);
+    --clr-box-shadow: var(--clr-grayish-blue-400);
   }
 }
 
