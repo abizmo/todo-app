@@ -25,10 +25,18 @@ footer a {
   color: var(--clr-primary-400);
 }
 
+[data-light] {
+  background-image: url('/bg-mobile-light.jpg');
+}
+
 @media (min-width: 48em) {
   body {
     background-image: url('/bg-desktop-dark.jpg');
     background-size: 100% 300px;
+  }
+
+  [data-light] {
+    background-image: url('/bg-desktop-light.jpg');
   }
 }
 
@@ -36,11 +44,19 @@ footer a {
   body {
     background-image: url('/bg-mobile-light.jpg');
   }
+
+  [data-dark] {
+    background-image: url('/bg-mobile-dark.jpg');
+  }
 }
 
 @media (min-width: 48em) and (prefers-color-scheme: light) {
   body {
     background-image: url('/bg-desktop-light.jpg');
+  }
+
+  [data-dark] {
+    background-image: url('/bg-desktop-dark.jpg');
   }
 }
 
