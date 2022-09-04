@@ -58,8 +58,10 @@ footer a {
 }
 
 @media (min-width: 48em) {
-  margin-top: 4.5rem;
-  margin-bottom: 3rem;
+  .app-header {
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .button {
