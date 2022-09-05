@@ -21,6 +21,7 @@
   --clr-gray-100: hsl(0, 0%, 98%);
 
   --clr-text: var(--clr-grayish-blue-300);
+  --clr-text-hover: var(--clr-grayish-blue-200);
   --clr-label: var(--clr-grayish-blue-500);
   --clr-body: var(--clr-blue-900);
   --clr-bg-elements: var(--clr-blue-800);
@@ -40,6 +41,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --clr-text: var(--clr-grayish-blue-700);
+    --clr-text-hover: var(--clr-grayish-blue-700);
     --clr-body: var(--clr-grayish-blue-200);
     --clr-bg-elements: var(--clr-gray-100);
     --clr-border: var(--clr-grayish-blue-400);
@@ -49,6 +51,7 @@
 
 [data-light] {
   --clr-text: var(--clr-grayish-blue-700);
+  --clr-text-hover: var(--clr-grayish-blue-700);
   --clr-body: var(--clr-grayish-blue-200);
   --clr-bg-elements: var(--clr-gray-100);
   --clr-border: var(--clr-grayish-blue-400);
@@ -58,6 +61,7 @@
 
 [data-dark] {
   --clr-text: var(--clr-grayish-blue-300);
+  --clr-text-hover: var(--clr-grayish-blue-200);
   --clr-body: var(--clr-blue-900);
   --clr-bg-elements: var(--clr-blue-800);
   --clr-border: var(--clr-grayish-blue-900);

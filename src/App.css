@@ -84,6 +84,7 @@ footer a {
   border: none;
   background: transparent;
   color: var(--clr-text);
+  cursor: pointer;
 }
 
 .todo__list {
@@ -124,6 +125,18 @@ footer a {
 .todo__list-item {
   height: 3.25rem;
   border-bottom: 1px solid var(--clr-border);
+}
+
+.todo__list-item:hover,
+.todo__list-item:hover .todo__list-checkbox {
+  cursor: pointer;
+}
+
+.todo__list-item:hover .todo__list-checkbox {
+  background: linear-gradient(var(--clr-bg-elements), var(--clr-bg-elements))
+      padding-box,
+    var(--clr-primary-gradient) border-box;
+  border: 1px solid transparent;
 }
 
 @media (min-width: 48em) {
@@ -205,6 +218,11 @@ footer a {
   border-radius: 0 0 4px 4px;
   position: relative;
 }
+
+.filter__bar .button:hover {
+  color: var(--clr-text-hover);
+}
+
 @media (min-width: 48em) {
   .filter__bar {
     font-size: var(--fs-300);
