@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import iconCross from './assets/images/icon-cross.svg';
-import iconMoon from './assets/images/icon-moon.svg';
-import iconSun from './assets/images/icon-sun.svg';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 import './App.css';
 
@@ -59,16 +58,12 @@ const initialTodos = [
 ];
 
 const App = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
   const [newTodo, setNewTodo] = useState('');
   const [todos, setTodos] = useState<TodosType[]>([]);
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
 
   useEffect(() => {
     setTodos(initialTodos);
-    console.log(isDarkTheme);
   }, []);
 
   const handleSubmit = (evt: React.SyntheticEvent) => {
@@ -109,35 +104,9 @@ const App = () => {
     setFilter(typeFilter);
   };
 
-  const handleToggleTheme = () => {
-    const body = document.body;
-    setIsDarkTheme((prevTheme) => !prevTheme);
-
-    if (isDarkTheme) {
-      body.toggleAttribute('data-light');
-      body.removeAttribute('data-dark');
-    } else {
-      body.toggleAttribute('data-dark');
-      body.removeAttribute('data-light');
-    }
-  };
-
   return (
     <div className='app-container | container grid'>
-      <header className='flex app-header'>
-        <h1 className='text-white fs-900 fw-bold lh-heading ls-900 uppercase'>
-          Todo
-        </h1>
-        <button className='button'>
-          <img
-            src={isDarkTheme ? iconSun : iconMoon}
-            alt=''
-            aria-hidden='true'
-            onClick={handleToggleTheme}
-          />
-          <span className='visually-hidden'>Change theme</span>
-        </button>
-      </header>
+      <Header />
       <main className='todo-app | grid'>
         <form onSubmit={handleSubmit}>
           <label className='add-todo | flex'>
