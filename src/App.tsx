@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import iconCross from './assets/images/icon-cross.svg';
 import iconMoon from './assets/images/icon-moon.svg';
 import iconSun from './assets/images/icon-sun.svg';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -230,17 +231,10 @@ const App = () => {
           Drag and drop to reorder list
         </p>
       </main>
-      <footer className='text-center'>
-        Challenge by{' '}
-        <a
-          href='https://www.frontendmentor.io?ref=challenge'
-          target='_blank'
-          rel='noreferrer noopener'
-        >
-          Frontend Mentor
-        </a>
-        . Coded by <a href='https://www.abizmo.dev'>Abián Izquierdo</a>.
-      </footer>
+      <Footer
+        developerName='Abián Izquierdo'
+        developerUrl='https://www.abizmo.dev'
+      />
     </div>
   );
 };
