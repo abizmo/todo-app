@@ -139,6 +139,10 @@ ol[role='list'] {
   font-weight: 700;
 }
 
+.fs-100 {
+  font-size: var(--fs-100);
+}
+
 .fs-200 {
   font-size: var(--fs-200);
 }
