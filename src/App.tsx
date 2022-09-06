@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import iconCross from './assets/images/icon-cross.svg';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import NewTodo from './components/NewTodo';
 
 import './App.css';
 
@@ -58,31 +59,12 @@ const initialTodos = [
 ];
 
 const App = () => {
-  const [newTodo, setNewTodo] = useState('');
   const [todos, setTodos] = useState<TodosType[]>([]);
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
 
   useEffect(() => {
     setTodos(initialTodos);
   }, []);
-
-  const handleSubmit = (evt: React.SyntheticEvent) => {
-    evt.preventDefault();
-    if (newTodo.trim() === '') return;
-
-    setTodos((prevTodos) => {
-      const newTodos = [
-        ...prevTodos,
-        {
-          id: new Date().getTime(),
-          description: newTodo,
-          done: false,
-        },
-      ];
-      setNewTodo('');
-      return newTodos;
-    });
-  };
 
   const handleDelete = (todoId: number) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
@@ -104,23 +86,26 @@ const App = () => {
     setFilter(typeFilter);
   };
 
+  const handleSubmit = (description: string) => {
+    setTodos((prevTodos) => {
+      const newTodos = [
+        ...prevTodos,
+        {
+          id: new Date().getTime(),
+          description,
+          done: false,
+        },
+      ];
+
+      return newTodos;
+    });
+  };
+
   return (
     <div className='app-container | container grid'>
       <Header />
       <main className='todo-app | grid'>
-        <form onSubmit={handleSubmit}>
-          <label className='add-todo | flex'>
-            <input className='add-todo--checkbox' disabled type='checkbox' />
-            <input
-              id='todo'
-              className='add-todo--text'
-              type='text'
-              placeholder='Create a new todo...'
-              value={newTodo}
-              onChange={({ target }) => setNewTodo(target.value)}
-            />
-          </label>
-        </form>
+        <NewTodo onSubmit={handleSubmit} />
         <div className='todo__list'>
           <ul className='todo__list-items' role='list'>
             {todos
