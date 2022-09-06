@@ -1,6 +1,9 @@
 /* CSS reset */
 
 :root {
+  --bg-small-image: url('/bg-mobile-light.jpg');
+  --bg-large-image: url('/bg-desktop-light.jpg');
+
   --clr-primary-400: hsl(220, 98%, 61%);
   --clr-primary-gradient: linear-gradient(
     to right bottom,
@@ -20,14 +23,13 @@
   --clr-grayish-blue-200: hsl(236, 33%, 92%);
   --clr-gray-100: hsl(0, 0%, 98%);
 
-  --clr-text: var(--clr-grayish-blue-300);
-  --clr-text-hover: var(--clr-grayish-blue-200);
-  --clr-label: var(--clr-grayish-blue-500);
-  --clr-body: var(--clr-blue-900);
-  --clr-bg-elements: var(--clr-blue-800);
-  --clr-border: var(--clr-grayish-blue-900);
-  --clr-text-done: var(--clr-grayish-blue-700);
-  --clr-box-shadow: var(--clr-blue-900);
+  --clr-text: var(--clr-grayish-blue-700);
+  --clr-text-hover: var(--clr-grayish-blue-700);
+  --clr-body: var(--clr-grayish-blue-200);
+  --clr-bg-elements: var(--clr-gray-100);
+  --clr-border: var(--clr-grayish-blue-400);
+  --clr-box-shadow: var(--clr-grayish-blue-400);
+  --clr-text-done: var(--clr-grayish-blue-400);
 
   --ff-body: 'Josefin Sans', sans-serif;
 
@@ -36,30 +38,42 @@
   --fs-300: 0.875rem;
   --fs-500: clamp(0.75rem, 0.5rem + 1.1vw, 1.125rem);
   --fs-900: clamp(1.75rem, 1rem + 3vw, 2.5rem);
+
+  color-scheme: light dark;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
+    --bg-small-image: url('/bg-mobile-dark.jpg');
+    --bg-large-image: url('/bg-desktop-dark.jpg');
+
+    --clr-text: var(--clr-grayish-blue-300);
+    --clr-text-hover: var(--clr-grayish-blue-200);
+    --clr-body: var(--clr-blue-900);
+    --clr-bg-elements: var(--clr-blue-800);
+    --clr-border: var(--clr-grayish-blue-900);
+    --clr-box-shadow: var(--clr-blue-900);
+    --clr-text-done: var(--clr-grayish-blue-700);
+  }
+
+  [data-theme='light'] {
+    --bg-small-image: url('/bg-mobile-light.jpg');
+    --bg-large-image: url('/bg-desktop-light.jpg');
+
     --clr-text: var(--clr-grayish-blue-700);
     --clr-text-hover: var(--clr-grayish-blue-700);
     --clr-body: var(--clr-grayish-blue-200);
     --clr-bg-elements: var(--clr-gray-100);
     --clr-border: var(--clr-grayish-blue-400);
     --clr-box-shadow: var(--clr-grayish-blue-400);
+    --clr-text-done: var(--clr-grayish-blue-400);
   }
 }
 
-[data-light] {
-  --clr-text: var(--clr-grayish-blue-700);
-  --clr-text-hover: var(--clr-grayish-blue-700);
-  --clr-body: var(--clr-grayish-blue-200);
-  --clr-bg-elements: var(--clr-gray-100);
-  --clr-border: var(--clr-grayish-blue-400);
-  --clr-box-shadow: var(--clr-grayish-blue-400);
-  --clr-text-done: var(--clr-grayish-blue-400);
-}
+[data-theme='dark'] {
+  --bg-small-image: url('/bg-mobile-dark.jpg');
+  --bg-large-image: url('/bg-desktop-dark.jpg');
 
-[data-dark] {
   --clr-text: var(--clr-grayish-blue-300);
   --clr-text-hover: var(--clr-grayish-blue-200);
   --clr-body: var(--clr-blue-900);
@@ -137,6 +151,10 @@ ol[role='list'] {
 
 .fw-bold {
   font-weight: 700;
+}
+
+.fs-100 {
+  font-size: var(--fs-100);
 }
 
 .fs-200 {

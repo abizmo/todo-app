@@ -1,0 +1,13 @@
+header {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 48em) {
+  header {
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,7 @@
+footer {
+  padding-block: 2rem;
+}
+
+footer a {
+  color: var(--clr-primary-400);
+}
