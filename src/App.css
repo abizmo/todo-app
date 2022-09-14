@@ -115,5 +115,6 @@ body {
 }
 
 .todos__tabs.active {
-  color: var(--clr-primary-400);
+  color: var(--clr-primary-400) !important;
+  cursor: initial;
 }

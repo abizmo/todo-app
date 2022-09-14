@@ -137,7 +137,7 @@ const TodoApp = () => {
               All
             </button>
             <button
-              className={`button filters__tab ${
+              className={`button todos__tabs ${
                 filter === FilterType.ACTIVE ? 'active' : ''
               } | text-gray`}
               aria-selected='true'
@@ -149,7 +149,7 @@ const TodoApp = () => {
               Active
             </button>
             <button
-              className={`button filters__tab ${
+              className={`button todos__tabs ${
                 filter === FilterType.COMPLETED ? 'active' : ''
               } | text-gray`}
               aria-selected='true'
