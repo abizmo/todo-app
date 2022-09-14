@@ -1,0 +1,11 @@
+.newTodo {
+  background: transparent;
+  border: none;
+  color: var(--clr-text);
+  flex: 1;
+  outline: none;
+}
+
+.newTodo::placeholder {
+  color: var(--clr-label);
+}

@@ -1,0 +1,22 @@
+.todoDescription {
+  background: transparent;
+  border: none;
+  color: var(--clr-text);
+  outline: none;
+  flex: 1;
+}
+
+.todoDescription.done {
+  text-decoration: line-through;
+  color: var(--clr-text-done);
+}
+
+@media (min-width: 48em) {
+  .todoClose {
+    display: none;
+  }
+
+  label:hover .todoClose {
+    display: initial;
+  }
+}
