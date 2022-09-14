@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import iconCross from '../../assets/images/icon-cross.svg';
-import NewTodo from '../NewTodo';
+import { NewTodo } from '../NewTodo';
+import { Todo } from '../Todo';
 
 type TodosType = {
   id: number;
@@ -104,23 +104,14 @@ const TodoApp = () => {
         <ul className='todos__list' role='list'>
           {todos.filter(FILTER_MAP[filter]).map(({ description, done, id }) => (
             <li key={id}>
-              <label className='todo | flex'>
-                <input
-                  className='todo__checkbox'
-                  type='checkbox'
-                  checked={done}
-                  onChange={() => handleChange(id)}
-                />
-                <span className={`todo__description ${done ? 'done' : ''}`}>
-                  {description}
-                </span>
-                <button
-                  className='button todo__close'
-                  onClick={() => handleDelete(id)}
-                >
-                  <img src={iconCross} alt='Delete task' />
-                </button>
-              </label>
+              <Todo
+                todoId={id}
+                description={description}
+                done={done}
+                id={`todo#${id}`}
+                onCheck={handleChange}
+                onDelete={handleDelete}
+              />
             </li>
           ))}
         </ul>

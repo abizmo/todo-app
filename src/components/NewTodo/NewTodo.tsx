@@ -1,5 +1,7 @@
 import React from 'react';
-import Input from '../Input';
+
+import { FormGroup } from '../UI/FormGroup';
+import styles from './NewTodo.module.css';
 
 type FormType = { newTodo: { value: string } };
 
@@ -7,7 +9,7 @@ type NewTodoType = {
   onSubmit: (description: string) => void;
 };
 
-const NewTodo = ({ onSubmit }: NewTodoType) => {
+export const NewTodo = ({ onSubmit }: NewTodoType) => {
   const handleSubmit = (evt: React.SyntheticEvent) => {
     evt.preventDefault();
     const target = evt.target as typeof evt.target & FormType;
@@ -21,9 +23,14 @@ const NewTodo = ({ onSubmit }: NewTodoType) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input id='newTodo' />
+      <FormGroup variant='input' id='new' disabled>
+        <input
+          id='newTodo'
+          className={styles.newTodo}
+          type='text'
+          placeholder='Create a new todo...'
+        />
+      </FormGroup>
     </form>
   );
 };
-
-export default NewTodo;

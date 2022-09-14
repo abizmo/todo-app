@@ -1,3 +1,1 @@
-import NewTodo from './NewTodo';
-
-export default NewTodo;
+export * from './NewTodo';
