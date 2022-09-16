@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { FilterType } from '../../models';
+import { FilterType, TodosType } from '../../models';
 
 import { NewTodo } from '../NewTodo';
 import { Todo } from '../Todo';
 import { TodosFilters } from '../TodosFilters';
-
-type TodosType = {
-  id: number;
-  description: string;
-  done: boolean;
-};
 
 const FILTER_MAP = {
   ALL: () => true,
@@ -72,10 +66,6 @@ const TodoApp = () => {
 
   const handleClear = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.done));
-  };
-
-  const handleFilter = (typeFilter: FilterType) => {
-    setFilter(typeFilter);
   };
 
   const handleSubmit = (description: string) => {
