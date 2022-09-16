@@ -1,12 +1,12 @@
 import React from 'react';
 
-import iconMoon from '../../assets/images/icon-moon.svg';
-import iconSun from '../../assets/images/icon-sun.svg';
-import useDarkTheme from '../../hooks/useDarkTheme';
+import iconMoon from '@/assets/images/icon-moon.svg';
+import iconSun from '@/assets/images/icon-sun.svg';
+import { useDarkTheme } from '@/hooks';
 
 import styles from './Header.module.css';
 
-const Header = () => {
+export const Header = () => {
   const { isDark, toggleTheme } = useDarkTheme();
 
   return (
@@ -26,5 +26,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

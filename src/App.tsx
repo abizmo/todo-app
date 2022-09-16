@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
-import Footer from './components/Footer';
-import Header from './components/Header';
-import TodoApp from './components/TodoApp';
+import { Footer, Header, Todos } from '@/components';
 
 import './App.css';
 
@@ -11,7 +9,7 @@ const App = () => {
     <div className='app-container | container grid'>
       <Header />
       <main>
-        <TodoApp />
+        <Todos />
       </main>
       <Footer
         developerName='Abián Izquierdo'

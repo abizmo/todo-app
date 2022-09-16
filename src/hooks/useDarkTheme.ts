@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const prefersTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const body = document.body;
 
-const useDarkTheme = () => {
+export const useDarkTheme = () => {
   const [isDark, setIsDark] = useState(prefersTheme);
 
   useEffect(() => {
@@ -16,5 +16,3 @@ const useDarkTheme = () => {
 
   return { isDark, toggleTheme };
 };
-
-export default useDarkTheme;

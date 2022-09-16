@@ -6,7 +6,7 @@
   flex: 1;
 }
 
-.todoDescription.done {
+.todoDescriptionDone {
   text-decoration: line-through;
   color: var(--clr-text-done);
 }
