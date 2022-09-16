@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useFilter, useTodos } from '../../hooks';
-import { FilterType, TodosType } from '../../models';
 
 import { NewTodo, Todo, TodosFilters } from './components';
 import styled from './Todos.module.css';
