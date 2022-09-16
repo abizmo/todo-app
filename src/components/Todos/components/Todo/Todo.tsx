@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FormGroup } from '../FormGroup';
 
-import iconCross from '../../assets/images/icon-cross.svg';
+import iconCross from '../../../../assets/images/icon-cross.svg';
 
 import styles from './Todo.module.css';
 
@@ -15,7 +15,7 @@ interface TodoProps {
   todoId: number;
 }
 
-const { todoCheckbox, todoDescription, todoClose } = styles;
+const { todoDescription, todoClose, todoDescriptionDone } = styles;
 
 export const Todo = ({
   description,
@@ -31,7 +31,7 @@ export const Todo = ({
     checked={done}
     onCheck={() => onCheck(todoId)}
   >
-    <span className={`${todoDescription} ${done ? 'done' : ''}`}>
+    <span className={`${todoDescription} ${done ? todoDescriptionDone : ''}`}>
       {description}
     </span>
     <button className={`button ${todoClose}`} onClick={() => onDelete(todoId)}>

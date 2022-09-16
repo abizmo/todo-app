@@ -4,6 +4,15 @@ import { useTodos } from '../../hooks';
 import { FilterType, TodosType } from '../../models';
 
 import { NewTodo, Todo, TodosFilters } from './components';
+import styled from './Todos.module.css';
+
+const {
+  appContainer,
+  todosList,
+  todosContainer,
+  todosFooter,
+  todosFooterClear,
+} = styled;
 
 const FILTER_MAP = {
   ALL: () => true,
@@ -19,10 +28,10 @@ export const TodoApp = () => {
   const todosCount = todos.filter((todo) => !todo.done).length;
 
   return (
-    <div className='todos__container | grid'>
+    <div className={`${appContainer} | grid`}>
       <NewTodo onSubmit={addTodo} />
-      <div className='todos'>
-        <ul className='todos__list' role='list'>
+      <div className={todosContainer}>
+        <ul className={todosList} role='list'>
           {todos.filter(FILTER_MAP[filter]).map(({ description, done, id }) => (
             <li key={id}>
               <Todo
@@ -36,14 +45,14 @@ export const TodoApp = () => {
             </li>
           ))}
         </ul>
-        <div className='todos__footer | flex'>
-          <span className='todos__counter'>{todosCount} items left</span>
+        <div className={`${todosFooter} | flex`}>
+          <span>{todosCount} items left</span>
           <TodosFilters
             selected={filter}
             onFilterBy={(newFilter) => setFilter(newFilter)}
           />
           <button
-            className='todos__footer-clear button'
+            className={`${todosFooterClear} button`}
             onClick={clearCompleteTodos}
           >
             Clear Completed
