@@ -1,10 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-
-import Footer from './components/Footer';
-import Header from './components/Header';
-import TodoApp from './components/TodoApp';
+import React from 'react';
 
 import './App.css';
+import { Footer, Header, TodoApp } from './components';
 
 const App = () => {
   return (

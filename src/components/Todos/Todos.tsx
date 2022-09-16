@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+
 import { useTodos } from '../../hooks';
 import { FilterType, TodosType } from '../../models';
 
-import { NewTodo } from '../NewTodo';
-import { Todo } from '../Todo';
-import { TodosFilters } from '../TodosFilters';
+import { NewTodo, Todo, TodosFilters } from './components';
 
 const FILTER_MAP = {
   ALL: () => true,
@@ -12,10 +11,12 @@ const FILTER_MAP = {
   COMPLETED: (todo: TodosType) => todo.done,
 };
 
-const TodoApp = () => {
+export const TodoApp = () => {
   const { todos, addTodo, deleteTodo, clearCompleteTodos, toggleTodo } =
     useTodos();
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
+
+  const todosCount = todos.filter((todo) => !todo.done).length;
 
   return (
     <div className='todos__container | grid'>
@@ -36,9 +37,7 @@ const TodoApp = () => {
           ))}
         </ul>
         <div className='todos__footer | flex'>
-          <span className='todos__counter'>
-            {todos.filter((todo) => !todo.done).length} items left
-          </span>
+          <span className='todos__counter'>{todosCount} items left</span>
           <TodosFilters
             selected={filter}
             onFilterBy={(newFilter) => setFilter(newFilter)}
@@ -57,5 +56,3 @@ const TodoApp = () => {
     </div>
   );
 };
-
-export default TodoApp;

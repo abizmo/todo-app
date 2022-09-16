@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { FormGroup } from '../UI/FormGroup';
+import { FormGroup } from '../FormGroup';
+
 import styles from './NewTodo.module.css';
 
 type FormType = { newTodo: { value: string } };

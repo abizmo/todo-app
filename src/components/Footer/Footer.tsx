@@ -7,7 +7,7 @@ type FooterProps = {
   developerUrl: string;
 };
 
-const Footer = ({
+export const Footer = ({
   developerName = 'a human been.',
   developerUrl = 'https://127.0.0.1/',
 }: FooterProps): React.ReactElement => {
@@ -25,5 +25,3 @@ const Footer = ({
     </footer>
   );
 };
-
-export default Footer;

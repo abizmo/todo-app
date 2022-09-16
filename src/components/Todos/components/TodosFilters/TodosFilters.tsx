@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiltersProps, FilterType } from '../../models';
+
+import { FiltersProps, FilterType } from '../../../../models';
 
 import styled from './TodosFilters.module.css';
 

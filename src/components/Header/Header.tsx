@@ -6,7 +6,7 @@ import { useDarkTheme } from '../../hooks';
 
 import styles from './Header.module.css';
 
-const Header = () => {
+export const Header = () => {
   const { isDark, toggleTheme } = useDarkTheme();
 
   return (
@@ -26,5 +26,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
