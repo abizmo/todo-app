@@ -1,5 +1,5 @@
-import { todos } from '../fixtures/todos';
-import { TodosType } from '../models';
+import { todos } from '@/fixtures';
+import { TodosType } from '@/models';
 
 const DELAY_MS = 5000;
 

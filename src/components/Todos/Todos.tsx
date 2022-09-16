@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useFilter, useTodos } from '../../hooks';
+import { useFilter, useTodos } from '@/hooks';
 
 import { NewTodo, Todo, TodosFilters } from './components';
 import styled from './Todos.module.css';

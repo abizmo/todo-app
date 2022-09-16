@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { TodosType } from '../models';
-import { getTodos } from '../services/todos';
+
+import { TodosType } from '@/models';
+import { getTodos } from '@/services';
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<TodosType[]>([]);

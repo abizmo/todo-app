@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Footer, Header, Todos } from './components';
+import { Footer, Header, Todos } from '@/components';
+
 import './App.css';
 
 const App = () => {

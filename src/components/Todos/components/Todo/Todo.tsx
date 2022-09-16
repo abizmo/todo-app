@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { FormGroup } from '../FormGroup';
+import iconCross from '@/assets/images/icon-cross.svg';
 
-import iconCross from '../../../../assets/images/icon-cross.svg';
+import { FormGroup } from '../FormGroup';
 
 import styles from './Todo.module.css';
 

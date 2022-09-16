@@ -1,4 +1,4 @@
-import { TodosType } from '../models';
+import { TodosType } from '@/models';
 
 export const todos: TodosType[] = [
   {

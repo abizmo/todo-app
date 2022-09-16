@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FilterType, TodosType } from '../models';
+
+import { FilterType, TodosType } from '@/models';
 
 export const useFilter = () => {
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);

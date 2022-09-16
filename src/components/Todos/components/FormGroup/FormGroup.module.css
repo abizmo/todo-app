@@ -43,7 +43,7 @@
 .checkbox:checked::before {
   background: var(--clr-primary-gradient);
   border-radius: 100%;
-  content: url('../../../../assets/images/icon-check.svg');
+  content: url('@/assets/images/icon-check.svg');
   display: grid;
   height: 1.25rem;
   place-content: center;

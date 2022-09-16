@@ -1,8 +1,8 @@
 import React from 'react';
 
-import iconMoon from '../../assets/images/icon-moon.svg';
-import iconSun from '../../assets/images/icon-sun.svg';
-import { useDarkTheme } from '../../hooks';
+import iconMoon from '@/assets/images/icon-moon.svg';
+import iconSun from '@/assets/images/icon-sun.svg';
+import { useDarkTheme } from '@/hooks';
 
 import styles from './Header.module.css';
 
