@@ -1,0 +1,25 @@
+.todosFilters {
+  background-color: var(--clr-bg-elements);
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 1rem);
+  height: 3.125rem;
+  left: 0;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0px 25px 20px -20px var(--clr-box-shadow);
+  font-weight: 700;
+}
+
+@media (min-width: 48em) {
+  .todosFilters {
+    position: static;
+    width: auto;
+  }
+}
+
+.filtersTab.activeTab {
+  color: var(--clr-primary-400) !important;
+  cursor: initial;
+}

@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { FilterType } from '../../models';
 
 import { NewTodo } from '../NewTodo';
 import { Todo } from '../Todo';
+import { TodosFilters } from '../TodosFilters';
 
 type TodosType = {
   id: number;
   description: string;
   done: boolean;
 };
-
-enum FilterType {
-  ALL = 'ALL',
-  ACTIVE = 'ACTIVE',
-  COMPLETED = 'COMPLETED',
-}
 
 const FILTER_MAP = {
   ALL: () => true,
@@ -119,48 +115,10 @@ const TodoApp = () => {
           <span className='todos__counter'>
             {todos.filter((todo) => !todo.done).length} items left
           </span>
-          <div
-            className='todos__filters | flex fs-300'
-            role='tablist'
-            aria-label='filter'
-          >
-            <button
-              className={`button todos__tabs ${
-                filter === FilterType.ALL ? 'active' : ''
-              } | text-gray`}
-              aria-selected='true'
-              role='tab'
-              aria-controls='todo-items'
-              tabIndex={0}
-              onClick={() => handleFilter(FilterType.ALL)}
-            >
-              All
-            </button>
-            <button
-              className={`button todos__tabs ${
-                filter === FilterType.ACTIVE ? 'active' : ''
-              } | text-gray`}
-              aria-selected='true'
-              role='tab'
-              aria-controls='todo-items'
-              tabIndex={-1}
-              onClick={() => handleFilter(FilterType.ACTIVE)}
-            >
-              Active
-            </button>
-            <button
-              className={`button todos__tabs ${
-                filter === FilterType.COMPLETED ? 'active' : ''
-              } | text-gray`}
-              aria-selected='true'
-              role='tab'
-              aria-controls='todo-items'
-              tabIndex={-1}
-              onClick={() => handleFilter(FilterType.COMPLETED)}
-            >
-              Completed
-            </button>
-          </div>
+          <TodosFilters
+            selected={filter}
+            onFilterBy={(newFilter) => setFilter(newFilter)}
+          />
           <button className='todos__footer-clear button' onClick={handleClear}>
             Clear Completed
           </button>
