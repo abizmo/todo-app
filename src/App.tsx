@@ -1,14 +1,14 @@
 import React from 'react';
 
 import './App.css';
-import { Footer, Header, TodoApp } from './components';
+import { Footer, Header, Todos } from './components';
 
 const App = () => {
   return (
     <div className='app-container | container grid'>
       <Header />
       <main>
-        <TodoApp />
+        <Todos />
       </main>
       <Footer
         developerName='Abián Izquierdo'

@@ -20,7 +20,7 @@ const FILTER_MAP = {
   COMPLETED: (todo: TodosType) => todo.done,
 };
 
-export const TodoApp = () => {
+export const Todos = () => {
   const { todos, addTodo, deleteTodo, clearCompleteTodos, toggleTodo } =
     useTodos();
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
