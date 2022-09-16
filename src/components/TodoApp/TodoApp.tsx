@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useTodos } from '../../hooks';
 import { FilterType, TodosType } from '../../models';
-import { getTodos } from '../../services/todos';
 
 import { NewTodo } from '../NewTodo';
 import { Todo } from '../Todo';
@@ -13,50 +13,13 @@ const FILTER_MAP = {
 };
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState<TodosType[]>([]);
+  const { todos, addTodo, deleteTodo, clearCompleteTodos, toggleTodo } =
+    useTodos();
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
-
-  useEffect(() => {
-    (async () => {
-      const initialTodos = await getTodos();
-      setTodos(initialTodos);
-    })();
-  }, []);
-
-  const handleDelete = (todoId: number) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
-  };
-
-  const handleChange = (todoId: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === todoId ? { ...todo, done: !todo.done } : todo
-      )
-    );
-  };
-
-  const handleClear = () => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.done));
-  };
-
-  const handleSubmit = (description: string) => {
-    setTodos((prevTodos) => {
-      const newTodos = [
-        ...prevTodos,
-        {
-          id: new Date().getTime(),
-          description,
-          done: false,
-        },
-      ];
-
-      return newTodos;
-    });
-  };
 
   return (
     <div className='todos__container | grid'>
-      <NewTodo onSubmit={handleSubmit} />
+      <NewTodo onSubmit={addTodo} />
       <div className='todos'>
         <ul className='todos__list' role='list'>
           {todos.filter(FILTER_MAP[filter]).map(({ description, done, id }) => (
@@ -66,8 +29,8 @@ const TodoApp = () => {
                 description={description}
                 done={done}
                 id={`todo#${id}`}
-                onCheck={handleChange}
-                onDelete={handleDelete}
+                onCheck={toggleTodo}
+                onDelete={deleteTodo}
               />
             </li>
           ))}
@@ -80,7 +43,10 @@ const TodoApp = () => {
             selected={filter}
             onFilterBy={(newFilter) => setFilter(newFilter)}
           />
-          <button className='todos__footer-clear button' onClick={handleClear}>
+          <button
+            className='todos__footer-clear button'
+            onClick={clearCompleteTodos}
+          >
             Clear Completed
           </button>
         </div>
