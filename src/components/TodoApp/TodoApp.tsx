@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FilterType, TodosType } from '../../models';
+import { getTodos } from '../../services/todos';
 
 import { NewTodo } from '../NewTodo';
 import { Todo } from '../Todo';
@@ -11,45 +12,15 @@ const FILTER_MAP = {
   COMPLETED: (todo: TodosType) => todo.done,
 };
 
-const initialTodos = [
-  {
-    id: 1,
-    description: 'Complete online JavaScript course',
-    done: true,
-  },
-  {
-    id: 2,
-    description: 'Jog around the park 3x',
-    done: false,
-  },
-  {
-    id: 3,
-    description: '10 minutes meditation',
-    done: false,
-  },
-  {
-    id: 4,
-    description: 'Read for 1 hour',
-    done: false,
-  },
-  {
-    id: 5,
-    description: 'Pick up groceries',
-    done: false,
-  },
-  {
-    id: 6,
-    description: 'Complete Todo App on Fronted Mentor',
-    done: false,
-  },
-];
-
 const TodoApp = () => {
   const [todos, setTodos] = useState<TodosType[]>([]);
   const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
 
   useEffect(() => {
-    setTodos(initialTodos);
+    (async () => {
+      const initialTodos = await getTodos();
+      setTodos(initialTodos);
+    })();
   }, []);
 
   const handleDelete = (todoId: number) => {
