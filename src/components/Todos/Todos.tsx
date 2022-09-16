@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useTodos } from '../../hooks';
+import { useFilter, useTodos } from '../../hooks';
 import { FilterType, TodosType } from '../../models';
 
 import { NewTodo, Todo, TodosFilters } from './components';
@@ -14,16 +14,10 @@ const {
   todosFooterClear,
 } = styled;
 
-const FILTER_MAP = {
-  ALL: () => true,
-  ACTIVE: (todo: TodosType) => !todo.done,
-  COMPLETED: (todo: TodosType) => todo.done,
-};
-
 export const Todos = () => {
   const { todos, addTodo, deleteTodo, clearCompleteTodos, toggleTodo } =
     useTodos();
-  const [filter, setFilter] = useState<FilterType>(FilterType.ALL);
+  const { filter, changeFilter, filtered } = useFilter();
 
   const todosCount = todos.filter((todo) => !todo.done).length;
 
@@ -32,7 +26,7 @@ export const Todos = () => {
       <NewTodo onSubmit={addTodo} />
       <div className={todosContainer}>
         <ul className={todosList} role='list'>
-          {todos.filter(FILTER_MAP[filter]).map(({ description, done, id }) => (
+          {filtered(todos).map(({ description, done, id }) => (
             <li key={id}>
               <Todo
                 todoId={id}
@@ -47,10 +41,7 @@ export const Todos = () => {
         </ul>
         <div className={`${todosFooter} | flex`}>
           <span>{todosCount} items left</span>
-          <TodosFilters
-            selected={filter}
-            onFilterBy={(newFilter) => setFilter(newFilter)}
-          />
+          <TodosFilters selected={filter} onFilterBy={changeFilter} />
           <button
             className={`${todosFooterClear} button`}
             onClick={clearCompleteTodos}
