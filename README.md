@@ -51,8 +51,6 @@ Users should be able to:
 - [Typescript](https://www.typescriptlang.org/) - JS with syntax for types
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Drag and drop for lists
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ## Author
 
 - Website - [Abián Izquierdo](https://www.abizmo.dev)
