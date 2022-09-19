@@ -45,12 +45,11 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- CSS Grid
+- CSS module
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Typescript](https://www.typescriptlang.org/) - JS with syntax for types
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Drag and drop for lists
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
