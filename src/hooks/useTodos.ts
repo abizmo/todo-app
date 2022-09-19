@@ -42,5 +42,19 @@ export const useTodos = () => {
     );
   };
 
-  return { todos, addTodo, deleteTodo, clearCompleteTodos, toggleTodo };
+  const reorderTodo = (source: number, destination: number) => {
+    const items = Array.from(todos);
+    const [reorderedItem] = items.splice(source, 1);
+    items.splice(destination, 0, reorderedItem);
+    setTodos(items);
+  };
+
+  return {
+    todos,
+    addTodo,
+    deleteTodo,
+    clearCompleteTodos,
+    toggleTodo,
+    reorderTodo,
+  };
 };
